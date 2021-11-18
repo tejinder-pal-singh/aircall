@@ -12,12 +12,13 @@ import clock from '../assets/icons/clock.png'
 const ActivityFeed = () => {
   const { pathname } = useLocation()
   const isArchivePage = pathname === '/archive' || false
-  console.log({ location });
   const [feeds, setFeeds] = useState([])
+
   useEffect(() => {
     fetch(' https://aircall-job.herokuapp.com/activities').then(response => response.json())
       .then(data => { setFeeds(data) });
   }, [])
+  
   return (<Fragment>
     <Header />
     {!isArchivePage &&
@@ -40,7 +41,6 @@ const ActivityFeed = () => {
   </Fragment >)
 }
 
-
 const List = (feed) => <Link to={`/details/${ feed.id }`} key={feed.id} style={{ textDecoration: 'none', color: "inherit" }}>
   <div className='feedRow'>
     <div className='icon'>
@@ -59,4 +59,5 @@ const List = (feed) => <Link to={`/details/${ feed.id }`} key={feed.id} style={{
     </div>
   </div>
 </Link>
+
 export default ActivityFeed

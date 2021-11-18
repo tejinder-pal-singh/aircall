@@ -5,7 +5,6 @@ import Header from '../Header.jsx'
 
 import '../css/ActivityDetails.css'
 
-//  https://aircall-job.herokuapp.com/activities/:id
 const ActivityDetails = () => {
 
   const [details, setDetails] = useState([])
@@ -20,15 +19,15 @@ const ActivityDetails = () => {
     <Header />
     <div className="detailsContainer">
 
-    {Object.keys(details).map(prop => <div key={prop} className="detailBox">
-      <span className="fieldName">
-        {prop}: &nbsp;
+      {Object.keys(details).map(prop => <div key={prop} className="detailBox">
+        <span className="fieldName">
+          {prop}: &nbsp;
         </span>
-        
-      <span className="fieldValue">
-        {details[prop]}
+
+        <span className="fieldValue">
+          {details[prop]}
         </span>
-    </div>)}
+      </div>)}
     </div>
   </Fragment>)
 }
